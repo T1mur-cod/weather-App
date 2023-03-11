@@ -6,13 +6,13 @@ const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click', () => {
 
-    const APIKey = '728b0ee6df5687559812bd3169ad77b7';
+    const APIKey = '2b54e6c0524d3999c1002acf88febe56';
     const city = document.querySelector('.search-box input').value;
 
     if (city === '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
+    fetch(`https://api.openweathermap.org/data/3.0/weather?q=${city}&units=metric&appid=${APIKey}`)
         .then(response => response.json())
         .then(json => {
 
@@ -36,23 +36,23 @@ search.addEventListener('click', () => {
 
             switch (json.weather[0].main) {
                 case 'Clear':
-                    image.src = 'img/clear.png';
+                    image.src = './img/clear.png';
                     break;
 
                 case 'Rain':
-                    image.src = 'img/rain.png';
+                    image.src = './img/rain.png';
                     break;
 
                 case 'Snow':
-                    image.src = 'img/snow.png';
+                    image.src = './img/snow.png';
                     break;
 
                 case 'Clouds':
-                    image.src = 'img/cloud.png';
+                    image.src = './img/cloud.png';
                     break;
 
                 case 'Haze':
-                    image.src = 'img/mist.png';
+                    image.src = './img/mist.png';
                     break;
 
                 default:
